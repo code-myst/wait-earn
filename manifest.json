@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "AI Wait Card",
+  "version": "0.4.0",
+  "description": "Shows a card with a timer, notes, learning tips and break reminders while an AI chat (ChatGPT, Claude, Gemini, Meta AI, Z.ai and more) generates a reply, or YouTube plays an ad.",
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://claude.ai/*",
+        "https://gemini.google.com/*",
+        "https://www.meta.ai/*",
+        "https://meta.ai/*",
+        "https://chat.z.ai/*",
+        "https://z.ai/*",
+        "https://chat.deepseek.com/*",
+        "https://grok.com/*",
+        "https://www.perplexity.ai/*",
+        "https://copilot.microsoft.com/*",
+        "https://chat.qwen.ai/*",
+        "https://chat.mistral.ai/*",
+        "https://www.youtube.com/*",
+        "https://m.youtube.com/*"
+      ],
+      "js": [
+        "sites.js",
+        "data.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AI Wait Card"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ai-wait-card@codemyst.dev",
+      "strict_min_version": "109.0"
+    }
+  }
+}

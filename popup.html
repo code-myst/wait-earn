@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 300px; padding: 14px; font: 14px system-ui, sans-serif; }
+    h1 { font-size: 15px; margin: 0 0 10px; }
+    h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: #777; margin: 16px 0 6px; }
+    .row { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+    label.block { display: block; margin: 8px 0; }
+    input[type="text"], input[type="number"] { box-sizing: border-box; padding: 6px 8px; }
+    input[type="text"] { width: 100%; margin-top: 4px; }
+    input[type="number"] { width: 64px; }
+    #stats { color: #444; }
+    ul { list-style: none; padding: 0; margin: 8px 0 0; max-height: 160px; overflow-y: auto; }
+    li { display: flex; align-items: center; gap: 8px; padding: 4px 0; border-bottom: 1px solid #eee; }
+    li span { flex: 1; word-break: break-word; }
+    li.done span { text-decoration: line-through; color: #999; }
+    li button { border: 0; background: none; cursor: pointer; color: #b00; }
+    .add { display: flex; gap: 6px; }
+    .add input { margin: 0; flex: 1; }
+    small { color: #777; }
+  </style>
+</head>
+<body>
+  <h1>AI Wait Card</h1>
+  <div class="row"><input type="checkbox" id="enabled"><label for="enabled">Card দেখাও</label></div>
+
+  <h2>আজকের অপেক্ষা</h2>
+  <div id="todayStats">...</div>
+
+  <h2>Notes / To-do</h2>
+  <div class="add">
+    <input type="text" id="newNote" maxlength="200" placeholder="নতুন note">
+    <button id="addNote">Add</button>
+  </div>
+  <ul id="noteList"></ul>
+
+  <h2>ফিচার</h2>
+  <div class="row"><input type="checkbox" id="notes"><label for="notes">Card-এ Note বোতাম</label></div>
+  <div class="row"><input type="checkbox" id="learning"><label for="learning">শেখার card (tip, word, quiz)</label></div>
+  <div class="row"><input type="checkbox" id="stats"><label for="stats">Card-এ আজকের stats</label></div>
+  <div class="row"><input type="checkbox" id="breaks"><label for="breaks">Break reminder, প্রতি</label>
+    <input type="number" id="breakMinutes" min="1" max="180"> <span>মিনিট অপেক্ষা পর</span></div>
+
+  <h2>Card-এর লেখা</h2>
+  <label class="block" for="message">AI-এর জন্য <input type="text" id="message" maxlength="80"></label>
+  <label class="block" for="adMessage">YouTube Ad-এর জন্য <input type="text" id="adMessage" maxlength="80"></label>
+  <small>পরিবর্তন সাথে সাথে save হয়।</small>
+  <script src="popup.js"></script>
+</body>
+</html>
